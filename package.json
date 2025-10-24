@@ -10,6 +10,15 @@
     "packages",
     "pnpm-workspace.yaml"
   ],
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Artem23112/create-fullstack-monorepo"
+  },
+  "homepage": "https://github.com/Artem23112/create-fullstack-monorepo#readme",
+  "bugs": {
+    "url": "https://github.com/Artem23112/create-fullstack-monorepo/issues"
+  },
   "scripts": {
     "frontend:dev": "pnpm --filter frontend dev",
     "frontend:build": "pnpm --filter frontend build",
