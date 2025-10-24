@@ -1,0 +1,40 @@
+{
+  "name": "create-fullstack-monorepo",
+  "version": "1.0.3",
+  "description": "A fullstack TypeScript monorepo template with React frontend and Node.js backend",
+  "bin": {
+    "create-fullstack-monorepo": "./bin/create-app.js"
+  },
+  "files": [
+    "bin",
+    "packages",
+    "pnpm-workspace.yaml"
+  ],
+  "scripts": {
+    "frontend:dev": "pnpm --filter frontend dev",
+    "frontend:build": "pnpm --filter frontend build",
+    "frontend:preview": "pnpm --filter frontend preview",
+    "backend:dev": "pnpm --filter backend dev",
+    "backend:build": "pnpm --filter backend build",
+    "backend:start": "pnpm --filter backend start",
+    "shared:build": "pnpm --filter shared build"
+  },
+  "keywords": [
+    "fullstack",
+    "monorepo",
+    "template",
+    "react",
+    "typescript",
+    "nodejs",
+    "vite",
+    "pnpm"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
