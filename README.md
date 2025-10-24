@@ -1,4 +1,8 @@
-# Create Fullstack App
+# Create Fullstack Monorepo
+
+[![npm version](https://img.shields.io/npm/v/create-fullstack-monorepo.svg)](https://www.npmjs.com/package/create-fullstack-monorepo)
+[![npm downloads](https://img.shields.io/npm/dm/create-fullstack-monorepo.svg)](https://www.npmjs.com/package/create-fullstack-monorepo)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A fullstack TypeScript monorepo template with React frontend and Node.js backend.
 
