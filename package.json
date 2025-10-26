@@ -1,6 +1,6 @@
 {
   "name": "create-fullstack-monorepo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A fullstack TypeScript monorepo template with React frontend and Node.js backend",
   "bin": {
     "create-fullstack-monorepo": "./bin/create-app.js"
@@ -10,7 +10,6 @@
     "packages",
     "pnpm-workspace.yaml"
   ],
-
   "repository": {
     "type": "git",
     "url": "https://github.com/Artem23112/create-fullstack-monorepo"
