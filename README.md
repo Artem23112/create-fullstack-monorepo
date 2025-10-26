@@ -4,42 +4,37 @@
 [![npm downloads](https://img.shields.io/npm/dm/create-fullstack-monorepo.svg)](https://www.npmjs.com/package/create-fullstack-monorepo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A fullstack TypeScript monorepo template with React frontend and Node.js backend.
+Version **1.0.16** — all known issues have been resolved, including build flow, workspace linking, and shared exports.
 
-## Quick Start
+---
 
-```bash
-pnpm create fullstack-monorepo my-app
-cd my-app
-pnpm install
-pnpm run dev
+## 📦 Project Scripts
 
+### 🚀 Development
 
-Structure
+- `pnpm run dev:frontend` — runs `shared` (watch:index) and `frontend` (vite dev)
+- `pnpm run dev:backend` — runs `shared` (watch:index) and `backend` (dev server)
 
-my-app/
-├── packages/
-│   ├── frontend/    # React + Vite + TypeScript
-│   ├── backend/     # Node.js + TypeScript  
-│   └── shared/      # Shared types and utilities
-├── pnpm-workspace.yaml
-└── package.json
+### 🛠️ Build
 
+- `pnpm run build` — builds all packages with a `build` script
+- `pnpm run build:shared` — builds only `shared`
+- `pnpm run build:backend` — builds only `backend`
+- `pnpm run build:frontend` — builds only `frontend`
 
-Scripts
+### 🧹 Clean
 
-pnpm run dev - Start both frontend and backend in development
+- `pnpm run clean` — removes all `dist/` folders across packages
 
-pnpm run frontend:dev - Start only frontend
+### 👀 Preview
 
-pnpm run backend:dev - Start only backend
+- `pnpm run preview` — runs `vite preview` for `frontend` (after build)
 
-pnpm run frontend:build - Build frontend
+---
 
-pnpm run backend:build - Build backend
+## 📂 Using the `shared` Package
 
-pnpm run frontend:preview - Preview frontend build
+All variables, types, and utilities declared inside `shared/src` are automatically exported via `shared/index.ts`:
 
-pnpm run backend:start - Start backend in production
-
-pnpm run shared:build - Build shared package
+```ts
+export * from './src/**/*';
