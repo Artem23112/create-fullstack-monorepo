@@ -26,8 +26,8 @@ function createApp() {
   // Структура файлов - оставляю пустые файлы по нужным путям
   const files = {
     // Корневые файлы
-    'package.json': '{\r\n  \"name\": \"${appName}\", \r\n  \"private\": true,\r\n  \"version\": \"1.0.0\",\r\n  \"description\": \"Monorepo для frontend и backend\",\r\n  \"scripts\": {\r\n    \"frontend:dev\": \"pnpm --filter frontend dev\",\r\n    \"frontend:build\": \"pnpm --filter frontend build\",\r\n    \"frontend:preview\": \"pnpm --filter frontend preview\",\r\n    \"backend:dev\": \"pnpm --filter backend dev\",\r\n    \"backend:build\": \"pnpm --filter backend build\",\r\n    \"backend:start\": \"pnpm --filter backend start\",\r\n    \"shared:build\": \"pnpm --filter shared build\"\r\n  },\r\n  \"keywords\": [],\r\n  \"author\": \"\",\r\n  \"license\": \"ISC\",\r\n  \"devDependencies\": {\r\n    \"typescript\": \"^5.6.3\"\r\n  }\r\n}',
-    'pnpm-workspace.yaml': 'packages:\n  - "packages/*"',
+    'package.json': '"{\"name\":\"create-fullstack-monorepo\",\"version\":\"1.0.3\",\"description\":\"A fullstack TypeScript monorepo template with React frontend and Node.js backend\",\"bin\":{\"create-fullstack-monorepo\":\"./bin/create-app.js\"},\"files\":[\"bin\",\"packages\",\"pnpm-workspace.yaml\"],\"repository\":{\"type\":\"git\",\"url\":\"https://github.com/Artem23112/create-fullstack-monorepo\"},\"homepage\":\"https://github.com/Artem23112/create-fullstack-monorepo#readme\",\"bugs\":{\"url\":\"https://github.com/Artem23112/create-fullstack-monorepo/issues\"},\"scripts\":{\"frontend:dev\":\"pnpm --filter shared watch:index & pnpm --filter frontend dev\",\"frontend:build\":\"pnpm --filter shared watch:index & pnpm --filter frontend build\",\"frontend:preview\":\"pnpm --filter shared watch:index & pnpm --filter frontend preview\",\"backend:dev\":\"pnpm --filter shared watch:index & pnpm --filter backend dev\",\"backend:build\":\"pnpm --filter shared watch:index & pnpm --filter backend build\",\"backend:start\":\"pnpm --filter shared watch:index & pnpm --filter backend start\",\"shared:build\":\"pnpm --filter shared build\"},\"keywords\":[\"fullstack\",\"monorepo\",\"template\",\"react\",\"typescript\",\"nodejs\",\"vite\",\"pnpm\"],\"author\":\"\",\"license\":\"MIT\",\"devDependencies\":{\"typescript\":\"^5.6.3\"},\"publishConfig\":{\"access\":\"public\"}}"',
+    'pnpm-workspace.yaml': 'packages:\n  - \'packages/*\'',
 
     // Backend файлы
     'packages/backend/src/index.ts': 'import express from \'express\';\r\nimport { API_VERSION, greet } from \'shared\';\r\n\r\nconst app = express();\r\nconst PORT = process.env.PORT || 3000;\r\n\r\napp.use(express.json());\r\n\r\napp.get(\'/\', (req, res) => {\r\n  res.json({ \r\n    message: greet(\'Backend\'),\r\n    version: API_VERSION \r\n  });\r\n});\r\n\r\napp.listen(PORT, () => {\r\n  console.log(`Server running on http://localhost:${PORT}`);\r\n});',
@@ -44,11 +44,12 @@ function createApp() {
 
     // Shared файлы
     'packages/shared/src/index.ts': 'export const API_VERSION = \'v1\';\r\n\r\nexport interface User {\r\n  id: string;\r\n  name: string;\r\n  email: string;\r\n}\r\n\r\nexport const greet = (name: string): string => {\r\n  return `Hello, ${name}!`;\r\n};',
-    'packages/shared/package.json': '{\r\n  \"name\": \"shared\",\r\n  \"version\": \"1.0.0\",\r\n  \"main\": \"./dist/index.js\",\r\n  \"types\": \"./dist/index.d.ts\",\r\n  \"scripts\": {\r\n    \"build\": \"tsc\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"typescript\": \"^5.6.3\"\r\n  }\r\n}',
-    'packages/shared/tsconfig.json': '{\r\n  \"compilerOptions\": {\r\n    \"target\": \"ES2020\",\r\n    \"module\": \"commonjs\",\r\n    \"declaration\": true,\r\n    \"outDir\": \"./dist\",\r\n    \"strict\": true,\r\n    \"esModuleInterop\": true,\r\n    \"skipLibCheck\": true,\r\n    \"forceConsistentCasingInFileNames\": true\r\n  },\r\n  \"include\": [\"src/**/*\"],\r\n  \"exclude\": [\"node_modules\", \"dist\"]\r\n}'
+    'packages/shared/package.json': '{\n  \"name\": \"shared\",\n  \"version\": \"1.0.0\",\n  \"main\": \"./dist/index.js\",\n  \"types\": \"./dist/index.d.ts\",\n  \"scripts\": {\n    \"generate:index\": \"node scripts/generate-index.cjs\",\n    \"watch:index\": \"chokidar \\\"src/**/*.ts\\\" -i \\\"src/index.ts\\\" -c \\\"pnpm generate:index\\\"\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^22.18.12\",\n    \"chokidar-cli\": \"^3.0.0\",\n    \"tsx\": \"^4.20.6\",\n    \"typescript\": \"^5.6.3\"\n  }\n}',
+    'packages/shared/tsconfig.json': '{\r\n  \"compilerOptions\": {\r\n    \"target\": \"ES2020\",\r\n    \"module\": \"commonjs\",\r\n    \"declaration\": true,\r\n    \"outDir\": \"./dist\",\r\n    \"strict\": true,\r\n    \"esModuleInterop\": true,\r\n    \"skipLibCheck\": true,\r\n    \"forceConsistentCasingInFileNames\": true\r\n  },\r\n  \"include\": [\"src/**/*\"],\r\n  \"exclude\": [\"node_modules\", \"dist\"]\r\n}',
+    'packages/shared/scripts/generate-index.cjs': 'const fs = require(\'fs\');\nconst path = require(\'path\');\n\nconst SHARED_DIR = path.resolve(__dirname, \'../src\');\nconst INDEX_FILE = path.join(SHARED_DIR, \'../index.ts\');\n\nfunction collectExports(dir, base = \'\') {\n  const entries = fs.readdirSync(dir, { withFileTypes: true });\n  const lines = [];\n\n  for (const entry of entries) {\n    const fullPath = path.join(dir, entry.name);\n    const relativePath = path.posix.join(base, entry.name);\n\n    if (entry.isDirectory()) {\n      lines.push(...collectExports(fullPath, relativePath));\n    } else if (\n      entry.isFile() &&\n      entry.name.endsWith(\'.ts\') &&\n      entry.name !== \'index.ts\'\n    ) {\n      const withoutExt = relativePath.replace(/\\.ts$/, \'\');\n      lines.push(`export * from \'./src/${withoutExt}\';`);\n    }\n  }\n\n  return lines;\n}\n\nconst lines = collectExports(SHARED_DIR);\n\nif (lines.length === 0) {\n  console.warn(\'⚠️ Нет файлов для экспорта. Проверь shared/src\');\n} else {\n  fs.writeFileSync(INDEX_FILE, lines.join(\'\\n\') + \'\\n\');\n  console.log(`✅ index.ts обновлён: ${lines.length} экспортов`);\n}'
   };
 
-  // Создаем файлы с индикатором прогресса
+  // Индикатор прогресса
   console.log('📄 Creating files...');
   const filePaths = Object.keys(files);
   filePaths.forEach((filePath, index) => {
@@ -64,7 +65,6 @@ function createApp() {
   console.log('  pnpm install');
   console.log('  pnpm run dev');
   console.log('\n🎯 Available scripts:');
-  console.log('  pnpm run dev          - Start frontend & backend');
   console.log('  pnpm run frontend:dev - Start only frontend');
   console.log('  pnpm run backend:dev  - Start only backend');
   console.log('\n📖 Check README for more details!');
