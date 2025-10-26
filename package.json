@@ -19,12 +19,8 @@
     "url": "https://github.com/Artem23112/create-fullstack-monorepo/issues"
   },
   "scripts": {
-    "frontend:dev": "pnpm --filter shared watch:index & pnpm --filter frontend dev",
-    "frontend:build": "pnpm --filter shared watch:index & pnpm --filter frontend build",
-    "frontend:preview": "pnpm --filter shared watch:index & pnpm --filter frontend preview",
-    "backend:dev": "pnpm --filter shared watch:index & pnpm --filter backend dev",
-    "backend:build": "pnpm --filter shared watch:index & pnpm --filter backend build",
-    "backend:start": "pnpm --filter shared watch:index & pnpm --filter backend start",
+    "backend:dev": "concurrently -n shared,backend -c cyan,green \"pnpm --filter shared watch:index\" \"pnpm --filter backend dev\"",
+    "frontend:dev": "concurrently -n shared,frontend -c cyan,magenta \"pnpm --filter shared watch:index\" \"pnpm --filter frontend dev\"",
     "shared:build": "pnpm --filter shared build"
   },
   "keywords": [
@@ -40,6 +36,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "typescript": "^5.6.3"
   },
   "publishConfig": {
