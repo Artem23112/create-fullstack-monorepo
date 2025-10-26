@@ -1,5 +1,5 @@
 import express from 'express';
-import { API_VERSION, greet } from 'shared';
+import { user } from 'shared'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -7,9 +7,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.json({ 
-    message: greet('Backend'),
-    version: API_VERSION 
+  res.json({
+    message: `Hello ${user} from Backend`,
+    version: '1.0.0'
   });
 });
 
