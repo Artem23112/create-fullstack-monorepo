@@ -60,7 +60,7 @@ pnpm install
 
 ### 👀 Preview
 
-- `pnpm run preview` — runs `vite preview` for `frontend` (after build)
+- `pnpm run start:frontend` — runs `vite preview` for `frontend` (after build)
 
 ---
 
