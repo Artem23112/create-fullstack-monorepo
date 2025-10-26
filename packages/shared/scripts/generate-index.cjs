@@ -20,7 +20,7 @@ function collectExports(dir, base = '') {
       entry.name !== 'index.ts'
     ) {
       const withoutExt = relativePath.replace(/\.ts$/, '');
-      lines.push(`export * from './src/${withoutExt}';`);
+      lines.push(`export * from './src/${withoutExt}.js';`);
     }
   }
 
