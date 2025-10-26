@@ -18,10 +18,15 @@
   "bugs": {
     "url": "https://github.com/Artem23112/create-fullstack-monorepo/issues"
   },
-  "scripts": {
-    "backend:dev": "concurrently -n shared,backend -c cyan,green \"pnpm --filter shared watch:index\" \"pnpm --filter backend dev\"",
-    "frontend:dev": "concurrently -n shared,frontend -c cyan,magenta \"pnpm --filter shared watch:index\" \"pnpm --filter frontend dev\"",
-    "shared:build": "pnpm --filter shared build"
+   "scripts": {
+    "dev:frontend": "concurrently -n shared,frontend -c cyan,magenta \"pnpm --filter shared watch:index\" \"pnpm --filter frontend dev\"",
+    "dev:backend": "concurrently -n shared,backend -c cyan,green \"pnpm --filter shared watch:index\" \"pnpm --filter backend dev\"",
+    "build": "pnpm -r run build",
+    "build:shared": "pnpm --filter shared run build",
+    "build:backend": "pnpm --filter backend run build",
+    "build:frontend": "pnpm --filter frontend run build",
+    "clean": "pnpm -r exec rm -rf dist",
+    "preview": "pnpm --filter frontend run preview"
   },
   "keywords": [
     "fullstack",

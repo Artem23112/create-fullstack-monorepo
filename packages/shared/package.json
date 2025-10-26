@@ -1,9 +1,9 @@
 {
   "name": "shared",
-  "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
+    "build": "tsc -b",
     "generate:index": "node scripts/generate-index.cjs",
     "watch:index": "chokidar \"src/**/*.ts\" -i \"src/index.ts\" -c \"pnpm generate:index\""
   },
