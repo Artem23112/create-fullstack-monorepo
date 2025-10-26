@@ -61,6 +61,7 @@ pnpm install
 ### 👀 Preview
 
 - `pnpm run start:frontend` — runs `vite preview` for `frontend` (after build)
+- `pnpm run start:backend` — runs `start` for `backend` (after build)
 
 ---
 
