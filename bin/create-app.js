@@ -54,6 +54,7 @@ function createApp() {
   const filePaths = Object.keys(files);
   filePaths.forEach((filePath, index) => {
     const fullPath = path.join(rootDir, filePath);
+    fs.mkdirSync(path.dirname(fullPath), { recursive: true });
     fs.writeFileSync(fullPath, files[filePath]);
     const progress = Math.round((index + 1) / filePaths.length * 100);
     console.log(`  [${progress}%] ${filePath}`);
