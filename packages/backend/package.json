@@ -4,12 +4,11 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch --tsconfig tsconfig.json src/index.ts",
-    "build": "tsc",
+    "build": "tsc -b",
     "start": "node dist/index.js"
   },
   "dependencies": {
     "express": "^4.21.1",
-    "mongoose": "^8.8.3",
     "shared": "workspace:*"
   },
   "devDependencies": {
