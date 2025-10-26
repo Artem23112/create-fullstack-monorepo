@@ -8,6 +8,38 @@ Version **1.0.16** — all known issues have been resolved, including build flow
 
 ---
 
+## 🚀 Quick Start
+
+Create a new fullstack monorepo project with a single command:
+
+### Using npx (npm 5.2+)
+```bash
+npx create-fullstack-monorepo my-app
+```
+
+### Using pnpm
+```bash
+pnpm create fullstack-monorepo my-app
+```
+
+### Using npm
+```bash
+npm create fullstack-monorepo my-app
+```
+
+### Using yarn
+```bash
+yarn create fullstack-monorepo my-app
+```
+
+After creation, navigate to your project and install dependencies:
+```bash
+cd my-app
+pnpm install
+```
+
+---
+
 ## 📦 Project Scripts
 
 ### 🚀 Development
@@ -35,6 +67,6 @@ Version **1.0.16** — all known issues have been resolved, including build flow
 ## 📂 Using the `shared` Package
 
 All variables, types, and utilities declared inside `shared/src` are automatically exported via `shared/index.ts`:
-
 ```ts
 export * from './src/**/*';
+```
