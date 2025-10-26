@@ -1,6 +1,6 @@
 {
   "name": "create-fullstack-monorepo",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A fullstack TypeScript monorepo template with React frontend and Node.js backend",
   "bin": {
     "create-fullstack-monorepo": "./bin/create-app.js"
