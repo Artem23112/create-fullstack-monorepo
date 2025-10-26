@@ -1,6 +1,6 @@
 {
   "name": "create-fullstack-monorepo",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "A fullstack TypeScript monorepo template with React frontend and Node.js backend",
   "bin": {
     "create-fullstack-monorepo": "./bin/create-app.js"
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/Artem23112/create-fullstack-monorepo/issues"
   },
-   "scripts": {
+  "scripts": {
     "dev:frontend": "concurrently -n shared,frontend -c cyan,magenta \"pnpm --filter shared watch:index\" \"pnpm --filter frontend dev\"",
     "dev:backend": "concurrently -n shared,backend -c cyan,green \"pnpm --filter shared watch:index\" \"pnpm --filter backend dev\"",
     "build": "pnpm -r run build",
