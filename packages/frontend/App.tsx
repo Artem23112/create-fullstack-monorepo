@@ -1,11 +1,11 @@
-import { API_VERSION, greet } from 'shared'
+import { user } from 'shared'
 
 function App() {
   return (
     <div style={{ padding: '2rem' }}>
       <h1>Frontend App</h1>
-      <p>{greet('User')}</p>
-      <p>API Version: {API_VERSION}</p>
+      <p>Hello, {user}!</p>
+      <p>API Version: 1.0.0</p>
     </div>
   );
 }
