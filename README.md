@@ -4,13 +4,15 @@
 [![npm downloads](https://img.shields.io/npm/dm/create-fullstack-monorepo.svg)](https://www.npmjs.com/package/create-fullstack-monorepo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Version **1.0.18** — all known issues have been resolved, including build flow, workspace linking, and shared exports.
+Version **1.0.19** — all known issues have been resolved, including build flow, workspace linking, and shared exports.
 
 ---
 
 ## 🚀 Quick Start
 
 Create a new fullstack monorepo project with a single command:
+
+Preferably, use the latest version (`@latest`).
 
 ### Using npx (npm 5.2+)
 ```bash
@@ -54,14 +56,14 @@ pnpm install
 - `pnpm run build:backend` — builds only `backend`
 - `pnpm run build:frontend` — builds only `frontend`
 
-### 🧹 Clean
-
-- `pnpm run clean` — removes all `dist/` folders across packages
-
 ### 👀 Preview
 
 - `pnpm run start:frontend` — runs `vite preview` for `frontend` (after build)
 - `pnpm run start:backend` — runs `start` for `backend` (after build)
+
+### 🧹 Clean
+
+- `pnpm run clean` — removes all `dist/` folders across packages
 
 ---
 
