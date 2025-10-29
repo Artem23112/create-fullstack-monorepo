@@ -1,42 +1,51 @@
 function getSharedFiles() {
   return {
-    'package.json': JSON.stringify({
-      name: "shared",
-      type: "module",
-      main: "./dist/index.js",
-      types: "./dist/index.d.ts",
-      scripts: {
-        "prebuild": "rimraf dist",
-        "build": "tsc -b",
-        "generate:index": "node scripts/generate-index.cjs",
-        "watch:index": "chokidar \"src/**/*.ts\" -i \"src/index.ts\" -c \"pnpm generate:index\""
+    "package.json": JSON.stringify(
+      {
+        name: "shared",
+        type: "module",
+        main: "./dist/index.js",
+        types: "./dist/index.d.ts",
+        scripts: {
+          prebuild: "rimraf dist",
+          build: "tsc -b",
+          "generate:index": "node scripts/generate-index.cjs",
+          "watch:index":
+            'chokidar "src/**/*.ts" -i "src/index.ts" -c "pnpm generate:index"',
+        },
+        devDependencies: {
+          "@types/node": "^22.18.12",
+          "chokidar-cli": "^3.0.0",
+          tsx: "^4.20.6",
+          typescript: "^5.6.3",
+        },
       },
-      devDependencies: {
-        "@types/node": "^22.18.12",
-        "chokidar-cli": "^3.0.0",
-        "tsx": "^4.20.6",
-        "typescript": "^5.6.3"
-      }
-    }, null, 2),
+      null,
+      2,
+    ),
 
-    'tsconfig.json': JSON.stringify({
-      compilerOptions: {
-        module: "ESNext",
-        target: "ES2020",
-        moduleResolution: "bundler",
-        isolatedModules: true,
-        esModuleInterop: true,
-        declaration: true,
-        outDir: "./dist",
-        strict: true,
-        skipLibCheck: true,
-        forceConsistentCasingInFileNames: true
+    "tsconfig.json": JSON.stringify(
+      {
+        compilerOptions: {
+          module: "ESNext",
+          target: "ES2020",
+          moduleResolution: "bundler",
+          isolatedModules: true,
+          esModuleInterop: true,
+          declaration: true,
+          outDir: "./dist",
+          strict: true,
+          skipLibCheck: true,
+          forceConsistentCasingInFileNames: true,
+        },
+        include: ["src/**/*", "index.ts"],
+        exclude: ["node_modules", "dist"],
       },
-      include: ["src/**/*", "index.ts"],
-      exclude: ["node_modules", "dist"]
-    }, null, 2),
+      null,
+      2,
+    ),
 
-    'scripts/generate-index.cjs': `const fs = require('fs');
+    "scripts/generate-index.cjs": `const fs = require('fs');
 const path = require('path');
 
 const SHARED_DIR = path.resolve(__dirname, '../src');
@@ -74,8 +83,8 @@ if (lines.length === 0) {
   console.log(\`✅ index.ts updated: \${lines.length} exports\`);
 }`,
 
-    'index.ts': `export * from './src/user.js';\n`,
-    'src/user.ts': `export const user = 'Dear User'`
+    "index.ts": `export * from './src/user.js';\n`,
+    "src/user.ts": `export const user = 'Dear User'`,
   };
 }
 
