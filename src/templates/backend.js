@@ -42,7 +42,6 @@ app.listen(PORT, () => {
           typescript: "^5.6.3",
         },
       },
-
       null,
       2,
     ),
