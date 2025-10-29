@@ -3,7 +3,7 @@
   "version": "1.1.2",
   "description": "A fullstack TypeScript monorepo template with React frontend and Node.js backend",
   "bin": {
-    "create-fullstack-monorepo": "./bin/create-app.js"
+    "create-fullstack-monorepo": "./bin/cli.js"
   },
   "files": [
     "bin",
