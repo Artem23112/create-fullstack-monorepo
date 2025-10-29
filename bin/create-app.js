@@ -67,8 +67,8 @@ function createApp() {
   console.log('  pnpm install');
   console.log('  pnpm run dev');
   console.log('\n🎯 Available scripts:');
-  console.log('  pnpm run frontend:dev - Start only frontend');
-  console.log('  pnpm run backend:dev  - Start only backend');
+  console.log('  pnpm run dev:frontend - Start only frontend');
+  console.log('  pnpm run dev:backend  - Start only backend');
   console.log('\n📖 Check README for more details!');
 }
 
