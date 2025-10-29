@@ -1,3 +1,5 @@
 node_modules
-packages/*/node_modules/
-./prettierrc
+node_modules/**/*
+/prettierrc
+
+pnpm-lock.yaml
