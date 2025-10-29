@@ -4,7 +4,9 @@
 [![npm downloads](https://img.shields.io/npm/dm/create-fullstack-monorepo.svg)](https://www.npmjs.com/package/create-fullstack-monorepo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Version **1.1.2** — all known issues have been resolved, including build flow, workspace linking, and shared exports.
+**Version 1.2.0** — **MAJOR FIXES and IMPROVEMENTS!** 🚀
+All known issues have been resolved, including the `build flow`, `workspace linking`, and `shared exports`.
+***Attention:** This version fixes critical build errors when using TypeScript/Vite and also **improves the stability** of the `dev:backend` and `dev:frontend` processes.*
 
 ---
 
