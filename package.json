@@ -3,7 +3,7 @@
   "version": "1.1.2",
   "description": "A fullstack TypeScript monorepo template with React frontend and Node.js backend",
   "bin": {
-    "create-fullstack-monorepo": "./bin/create-app.js"
+    "create-fullstack-monorepo": "./bin/cli.js"
   },
   "files": [
     "bin",
@@ -18,9 +18,9 @@
   "bugs": {
     "url": "https://github.com/Artem23112/create-fullstack-monorepo/issues"
   },
-   "scripts": {
+  "scripts": {
     "dev:frontend": "concurrently -n shared,frontend -c cyan,magenta \"pnpm --filter shared watch:index\" \"pnpm --filter frontend dev\"",
-    "dev:backend": "concurrently -n shared,backend -c cyan,green \"pnpm --filter shared watch:index\" \"pnpm --filter backend dev\"",
+    "dev:backend": "pnpm --filter shared build && concurrently -n shared:index,shared:tsc,backend -c cyan,yellow,green \"pnpm --filter shared watch:index\" \"pnpm --filter shared watch:tsc\" \"pnpm --filter backend dev\"",
     "build": "pnpm clean && pnpm -r run build",
     "build:shared": "pnpm --filter shared run build",
     "build:backend": "pnpm --filter backend run build",
@@ -43,8 +43,9 @@
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^9.2.1",
-    "typescript": "^5.6.3",
-    "rimraf": "^6.0.1"
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.3"
   },
   "publishConfig": {
     "access": "public"
