@@ -6,6 +6,8 @@
 
 **Version 1.2.3** — **CRITICAL FIX!** 🎉
 
+> ⚠️ **Versions before 1.2.3 are broken. Always use `@latest`**
+
 This version resolves the installation error where the `src` directory was missing from the published package, causing `Cannot find module '../src/index.js'` errors.
 
 ### What's Fixed in 1.2.3:
