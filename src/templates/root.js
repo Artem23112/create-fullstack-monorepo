@@ -3,7 +3,7 @@ function getRootPackageJson(appName) {
     name: appName,
     scripts: {
       "dev:frontend":
-        'concurrently -n shared,frontend -c cyan,magenta "pnpm --filter shared watch:index" "pnpm --filter frontend dev"',
+        'pnpm --filter shared build && concurrently -n shared:index,shared:tsc,frontend -c cyan,yellow,magenta "pnpm --filter shared watch:index" "pnpm --filter shared watch:tsc" "pnpm --filter frontend dev"',
       "dev:backend":
         'pnpm --filter shared build && concurrently -n shared:index,shared:tsc,backend -c cyan,yellow,green "pnpm --filter shared watch:index" "pnpm --filter shared watch:tsc" "pnpm --filter backend dev"',
       build: "pnpm clean && pnpm -r run build",
