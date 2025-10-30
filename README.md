@@ -4,11 +4,11 @@
 [![npm downloads](https://img.shields.io/npm/dm/create-fullstack-monorepo.svg)](https://www.npmjs.com/package/create-fullstack-monorepo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Version 1.2.2** — **CRITICAL FIX!** 🎉
+**Version 1.2.3** — **CRITICAL FIX!** 🎉
 
 This version resolves the installation error where the `src` directory was missing from the published package, causing `Cannot find module '../src/index.js'` errors.
 
-### What's Fixed in 1.2.2:
+### What's Fixed in 1.2.3:
 
 - ✅ **Installation works correctly** - `your-package-manager create fullstack-monorepo` now works without errors
 
@@ -142,7 +142,7 @@ Found a bug or want to contribute? Please visit the [GitHub repository](https://
 
 ## 📋 Changelog
 
-### [1.2.2] - 2024-10-30
+### [1.2.3] - 2024-10-30
 
 - **Fixed**: Critical installation error - `src/` directory now properly included in npm package
 - **Fixed**: Removed `.npmignore` that was preventing `src/` from being published
